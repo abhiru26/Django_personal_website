@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome to Tech With Abhi {% endblock title %}
+
+{% block homeactive%} active {% endblock homeactive%}
+{% block body %}
+
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <img src="/static/img/circle-cropped.png" alt="logo" width="120">
+        <h1 class="jumbotron-heading">
+        <span id="typed"></span>
+        <p class="lead text-muted">Confused on which website to go? I have got you covered. Browse blogs and find out
+            the best article for you. Its free!<br>Tech With Abhi is my attempt to showcase my brand new website to the world</p>
+        <p>
+            <a href="/blog" class="btn btn-danger my-2">Browse Blog</a>
+            <a href="#" class="btn btn-success my-2">👓</a>
+            <a href="/contact" class="btn btn-primary my-2">Contact Me</a>
+        </p>
+    </div>
+</section>
+
+<div class = "container">
+<h2> Popular Blogpost: </h2>
+<div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <h3 class="mb-0">Featured post</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="mb-0">Post title</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+
+</div>
+<footer class="container mt-3">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2020-2021 Tech With Abhi.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
+<script>
+    window.onload = function () {
+        console.log("loaded")
+        var typed = new Typed('#typed', {
+            strings: ["Welcome to Tech With Abhirup 😉 ", "Bored AF? PUBG servers are down? 😫 Binge watched everything? Even biching starting to get boring? 🤔 ", "So here we are with this cute little website.🤗", "Is it better than those(PUBG, Netflix, biching)?😏", "It depends, but all of the ideas of different people with different mindsets regarding various genres sounds good to me.😎","so, what are you waiting for ?","lets explore the world!!!🤩"],
+            backSpeed: 15,
+            smartBackspace: true,
+            backDelay: 1700,
+            startDelay: 1000,
+            typeSpeed: 20,
+            loop: true,
+        });
+    };
+</script>
+
+{% endblock body %}

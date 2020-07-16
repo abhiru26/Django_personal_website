@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouCite</title>
+  <style>
+    body {
+      visibility: hidden;
+    }
+
+    #loader {
+      visibility: visible;
+    }
+
+    .reveal {
+      opacity: 100%;
+      display: none;
+      visibility: hidden;
+    }
+
+    .html.sr .load-hidden {
+      visibility: hidden;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/3be6e54e38.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+  <link rel="stylesheet" href="/css/css.css">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Baloo+Chettan+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    jQuery(window).load(function () {
+      document.querySelector("#loader").style.display = "none";
+      document.querySelector("body").style.visibility = "visible";
+      var list = document.getElementsByClassName("tab");
+      console.log(list);
+      for (let j = 0; j < list.length; j++) {
+        document.getElementsByClassName("tab")[j].classList.add("reveal");
+      }
+      window.sr = ScrollReveal();
+      ScrollReveal().reveal('.reveal', {
+        duration: 400,
+        origin: "bottom",
+        distance: "50px",
+        opacity: 0,
+        scale: 0.5,
+        viewFactor: 0.2,
+        rotate: {
+          x: 0,
+          y: 0,
+          z: 0
+        },
+        easing: "ease",
+        reset: false,
+        mobile: true,
+        interval: 100
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="spinner-grow text-secondary justify-content-center m-auto text-center center" id="loader" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="contents hide">
+    
+<div class="container composePage">
+    <h1>Compose</h1>
+    <form action="/compose" method="POST">
+        <input type="hidden" value="" name="check">
+        <div class="form-group">
+            <div class="inputs">
+                <label class="headL" for="exampleFormControlTextarea1"><strong>Type</strong></label>
+                <div class="form-group">
+                    <select required="required" name="type" class="form-control" id="sel1">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        <option>Tech</option>
+                        <option>Art</option>
+                        <option>Social</option>
+                        <option>Movie review</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputs">
+                <label class="headL" for="exampleFormControlTextarea1"><strong>Show</strong></label>
+                <div class="form-group">
+                    <select required="required" name="view" class="form-control" id="sel1">
+                        <option value="" selected disabled hidden>Choose here</option>
+                        <option>Public</option>
+                        <option>Private</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputs">
+                <label class="headL" for="exampleFormControlTextarea1"><strong>Heading</strong></label>
+                <input type="text" required="required" name="head" class="form-control" id="head"
+                    placeholder="Put your heading here..." autocomplete="off">
+            </div>
+            <input type="hidden" id="timeZone" name="timeZone">
+            <div class="inputs">
+                <label class="headL" for="exampleFormControlTextarea1"><strong>About</strong></label>
+                <input type="text" required="required" name="abt" class="form-control" id="head" maxlength="300"
+                    placeholder="Put a short description here..." autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label class="headL" for="exampleFormControlTextarea1"><strong>Thumbnail Image Link</strong></label>
+                <input type="text" name="thumb" class="form-control" id="head" placeholder="Put your link here..."
+                    autocomplete="off">
+            </div>
+            <div class="inputs">
+                <label for="exampleFormControlTextarea1"><strong>Compose</strong></label>
+                <textarea name="cmp" class="form-control form-control-lg text" id="cmp"
+                    placeholder="Compose here my freinds..." rows="10"></textarea>
+            </div>
+            <div class="inputs">
+                <label for="exampleFormControlTextarea1"><strong>Tags</strong> (differenciate various tags by a
+                    ',')</label>
+                <input type="text" data-role="tagsinput" name="tags" id="tags">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" name="btn">Submit</button>
+    </form>
+</div>
+<script>
+    var x = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.getElementById('timeZone').value = x;
+</script>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src='https://cdn.tiny.cloud/1/f4bcys8mlespwt6669dopu2hdlnsmk7bnp2rkk4gpby5w9se/tinymce/5/tinymce.min.js'
+  referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '#cmp',
+    'toolbar': 'undo redo | styleselect | forecolor bold italic bullist numlist link alignleft | aligncenter alignright alignjustify | outdent indent emoticons hr code image',
+    'plugins': 'link emoticons hr code wordcount table lists advlist textcolor image',
+    icons_url: 'https://www.example.com/icons/material/icons.js',
+    icons: 'material',
+    mobile: {
+      menubar: true
+    },
+    content_css: ['//fonts.googleapis.com/css?family=Acme|Baloo+Chettan+2&display=swap'],
+    font_formats: 'Arial Black=arial black,avant garde;Baloo Chettan=baloo chettan 2;Times New Roman=times newroman,times;'
+  });
+</script>
+<script>
+  function noShrink() {
+    var yolo = document.getElementById("searchBar").value;
+    if (yolo != '') {
+      document.getElementById("searchBar").classList.add("noShrink");
+    } else if (yolo == '') {
+      document.getElementById("searchBar").classList.remove("noShrink");
+    }
+  }
+  const identity = document.getElementById("identify");
+  console.log(identity);
+  if (identity) {
+    document.getElementById("toolPic").classList.add("nPad");
+  }
+  $(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+      document.getElementsByClassName("toolbar")[0].classList.remove("curved");
+    } else {
+      if (!document.getElementsByClassName("toolbar")[0].classList.contains("curved")) {
+        document.getElementsByClassName("toolbar")[0].classList.add("curved");
+      }
+    }
+  });
+</script>
+</body>
+
+</html>
